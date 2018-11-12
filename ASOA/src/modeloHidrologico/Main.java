@@ -162,9 +162,9 @@ public class Main {
 					System.out.print("-------------------------------------------------------------------------------------");
 					System.out.printf("Corrida N° %d", i);
 					System.out.println("");
-					System.out.printf("  >> Caudal Maximo obtenido: ", metHid.getMaximo());
+					System.out.printf("  >> Caudal Maximo obtenido: %d", metHid.getMaximo());
 					System.out.println("");
-					System.out.printf("  >> Caudal Minimo obtenido: ", metHid.getMinimo());
+					System.out.printf("  >> Caudal Minimo obtenido: %d", metHid.getMinimo());
 					System.out.println("");
 					System.out.printf("  >> TIEMPO EN EL QUE EL CAUDAL FUE SUPERIOR A %d, %d", CSU, metHid.getTiempoCaudalSuperior());
 					System.out.println("");
