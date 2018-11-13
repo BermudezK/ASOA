@@ -2,37 +2,47 @@ package modeloHidrologico;
 
 import java.util.*;
 
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+
 
 public class Main {
 	
 	public static void main (String[]args) {
 		Scanner print = new Scanner (System.in);
 		
+		System.out.println("_________________________________________________________________________________________");
 		System.out.println("'-----------------  INGRESO DE LOS VALORES PARA LLEVAR A CABO LA SIMULACION:-------------'");
-
-		System.out.print(">>Ingrese el numero de iteraciones de la simulacion: ");
+		
+		System.out.println(" " );
+		System.out.println(">>Ingrese el numero de iteraciones de la simulacion: ");
 		Integer corridas = print.nextInt();
 
-		System.out.print(" >> Cantidad de dias que se simularan (EXT): ");
+		System.out.println(">> Cantidad de dias que se simularan (EXT): ");
 		Integer EXT = print.nextInt();
 		
+		
+		System.out.println("_________________________________________________________________________________________");
 		/* INICIO DE LA APLICACION DEL METODO MULTIPLICATIVO DE LAS CONGRUENCIAS (ejecucionMetMultiCongru())**/
 		System.out.println("-----------------  INGRESO DE LOS VALORES PARA EL METODO MULTIPLICATIVO DE LAS CONGRUENCIAS:-------------");
 		System.out.println("INGRESE LOS SIGUIENTES VALORES ENTEROS Y MAYORES A 0        ");
 		
-		System.out.println("  >> Semilla: ");
+		System.out.println(">> Semilla: ");
 		Integer semilla = print.nextInt();
-		System.out.println("  >>Modulo (debe ser la unidad (1) seguida de ceros(0) y mayor a la semilla):  ");
+		System.out.println(">>Modulo (debe ser la unidad (1) seguida de ceros(0) y mayor a la semilla):  ");
 		Integer modulo = print.nextInt();
 		
 
 		System.out.println("Para calcular el parametro a necesitaremmos los siguientes valores :       \n");
-		System.out.println("  >>Parámetro t (un valor entero cualquiera):  ");
+		System.out.println(">>Parámetro t (un valor entero cualquiera):  ");
 		Integer t = print.nextInt();
 		
 		System.out.println("Para el parametro p elija uno de los siguientes números ");
 		System.out.println("3, 11, 13, 19, 21, 27, 29, 37, 53, 59, 61, 67, 69, 77, 83, 91");
-		System.out.println("  >>Parámetro \"p\": ");
+		System.out.println(">>Parámetro \"p\": ");
 		Integer p = print.nextInt();
 		
 
@@ -163,9 +173,9 @@ public class Main {
 					System.out.print("-------------------------------------------------------------------------------------");
 					System.out.printf("Corrida N° %d", i);
 					System.out.println("");
-					System.out.printf("  >> Caudal Maximo obtenido: ", metHid.getMaximo());
+					System.out.printf("  >> Caudal Maximo obtenido: %d", metHid.getMaximo());
 					System.out.println("");
-					System.out.printf("  >> Caudal Minimo obtenido: ", metHid.getMinimo());
+					System.out.printf("  >> Caudal Minimo obtenido: %d", metHid.getMinimo());
 					System.out.println("");
 					System.out.printf("  >> TIEMPO EN EL QUE EL CAUDAL FUE SUPERIOR A %d, %d", CSU, metHid.getTiempoCaudalSuperior());
 					System.out.println("");
@@ -178,9 +188,26 @@ public class Main {
 					inicio = fin+1;
 					fin = fin + EXT;
 					i++;
+					/* Grafica  */
+									
+					DefaultCategoryDataset metHidro = new DefaultCategoryDataset();
 					
+					String c1="Maximo";
+					String c2="Minimo";
+					String c3="Acumulados";
+															
+					metHidro.setValue(metHid.getMinimo(),c1 ,"Caudal minimo");
+					metHidro.setValue(metHid.getMaximo(),c2,"Caudal Minimo");
+					metHidro.setValue(metHid.getCaudalesAcumulados(),c3,"Caudal Acumulado");
 					
-				}
+					JFreeChart f = ChartFactory.createBarChart("Hidrologia"," ","Caudal",metHidro,PlotOrientation.VERTICAL, true, false, false);
+				
+					ChartFrame frame= new ChartFrame("Hidrologia" ,f);
+					frame.pack();
+					frame.setVisible(true);
+					}
+					
+				
 				
 			}else {
 
