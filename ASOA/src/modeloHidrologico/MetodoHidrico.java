@@ -4,9 +4,8 @@
 package modeloHidrologico;
 
 import java.util.ArrayList;
-
 /**
- * @author Bermúdez Karina S.
+ * @author Bermï¿½dez Karina S.
  *
  */
 public class MetodoHidrico {

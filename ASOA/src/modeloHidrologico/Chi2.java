@@ -59,6 +59,7 @@ public class Chi2 {
 	}
 	private void setSerie(ArrayList<Double> serie) {
 		this.serie = serie;
+		
 	}
 	private int getNi() {
 		return ni;

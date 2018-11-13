@@ -149,7 +149,7 @@ public class Main {
 				ArrayList<Integer> subMuestra = new ArrayList<Integer>();
 				int inicio = 0;
 				int fin = EXT;
-				while ( i < corridas) {
+				while ( i <= corridas) {
 					//ASIGNAMOS UNA PORCION DE LA MUESTRA POR CADA CORRIDA DEL TAMAÑO DE EXT
 					for (int sub = inicio; sub <= fin; sub++) {
 						subMuestra.add(muestraAleatoria.get(sub));
@@ -177,8 +177,6 @@ public class Main {
 					inicio = fin+1;
 					fin = fin + EXT;
 					i++;
-					
-					
 				}
 				
 			}else {
@@ -199,11 +197,6 @@ public class Main {
          		   % Empirica
 				 * */
 			}
-			
-			
-			
-			
-			
 		}
 	
 		print.close();
