@@ -26,12 +26,12 @@ public class Main {
 		
 
 		System.out.println("Para calcular el parametro a necesitaremmos los siguientes valores :       \n");
-		System.out.println("  >>Parámetro t (un valor entero cualquiera):  ");
+		System.out.println("  >>Parï¿½metro t (un valor entero cualquiera):  ");
 		Integer t = print.nextInt();
 		
-		System.out.println("Para el parametro p elija uno de los siguientes números ");
+		System.out.println("Para el parametro p elija uno de los siguientes nï¿½meros ");
 		System.out.println("3, 11, 13, 19, 21, 27, 29, 37, 53, 59, 61, 67, 69, 77, 83, 91");
-		System.out.println("  >>Parámetro \"p\": ");
+		System.out.println("  >>Parï¿½metro \"p\": ");
 		Integer p = print.nextInt();
 		
 
@@ -54,9 +54,9 @@ public class Main {
 			System.out.println("                    PSEUDOALEATORIOS SIGA UNA DISTRIBUCION UNIFORME                  ");
 			System.out.println("-------------------------------------------------------------------------------------");
 			
-			System.out.print(">>Ingrese el número de subintervalos considerados: ");
+			System.out.print(">>Ingrese el nï¿½mero de subintervalos considerados: ");
 			Integer ni = print.nextInt();
-			System.out.print(">>Ingrese nivel de significación considerado entre [0,1]: (sugerido 0,05)");
+			System.out.print(">>Ingrese nivel de significaciï¿½n considerado entre [0,1]: (sugerido 0,05)");
 			Double alpha = print.nextDouble();
 			//Chi2(ArrayList<Double> serie, int ni, double alpha )
 			Chi2 mch2 = new Chi2(serie, ni, alpha);
@@ -150,8 +150,8 @@ public class Main {
 				int inicio = 0;
 				int fin = EXT;
 				while ( i <= corridas) {
-					//ASIGNAMOS UNA PORCION DE LA MUESTRA POR CADA CORRIDA DEL TAMAÑO DE EXT
-					for (int sub = inicio; sub <= fin; sub++) {
+					//ASIGNAMOS UNA PORCION DE LA MUESTRA POR CADA CORRIDA DEL TAMAï¿½O DE EXT
+					for (int sub = inicio; sub < fin; sub++) {
 						subMuestra.add(muestraAleatoria.get(sub));
 					}
 					
@@ -160,7 +160,7 @@ public class Main {
 					metHid.aplicarMetodo(QIN, CIN, CSU);
 					
 					System.out.print("-------------------------------------------------------------------------------------");
-					System.out.printf("Corrida N° %d", i);
+					System.out.printf("Corrida Nï¿½ %d", i);
 					System.out.println("");
 					System.out.printf("  >> Caudal Maximo obtenido: %d", metHid.getMaximo());
 					System.out.println("");
