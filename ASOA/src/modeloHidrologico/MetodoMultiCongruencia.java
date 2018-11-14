@@ -18,10 +18,10 @@ class MetodoMultiCongruencia {
 
    //se definene las variables
 
-	protected int semilla;
-	protected int a;
-	protected int modulo;
-	protected int n;
+	private int semilla;
+	private int a;
+	private int modulo;
+	private int n;
 	
 	MetodoMultiCongruencia(int v_semilla, int v_t, int v_p, int v_modulo, int v_n) {
 		this.setA(200*v_t + v_p);
@@ -83,7 +83,7 @@ class MetodoMultiCongruencia {
 		ArrayList<Double> serie = new ArrayList<Double>();
 		
 		double aux = 0;
-		// omp parallel
+		// omp parallel for
 		for (int i = 0; i < this.getN(); i++) {
 			aux = (double) this.getSemilla()/ (double) (this.getModulo());
 			serie.add(aux);
