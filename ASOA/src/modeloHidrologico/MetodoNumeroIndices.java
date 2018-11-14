@@ -62,7 +62,7 @@ class MetodoNumeroIndices {
 	public ArrayList<Integer> aplicaNumerosIndices() {
 		ArrayList <Integer> muestra = new ArrayList<Integer>();
 		int j=0;
-                 // omp parallel for
+        // omp parallel for
 		for(int k=0; k < this.getSerie().size(); k++) {
 
 
