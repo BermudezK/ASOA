@@ -9,7 +9,7 @@ import java.util.ArrayList;
 %p         = Uno de los siguientes valores:  3, 11, 13, 19, 21, 27, 29, 37, 53, 59, 61, 67, 69, 77, 83, 91;
 %   t y p son usados para calcular el valor del parametro a)
 %modulo    = es el valor representado po la unidad seguida de ceros 
-%n         = el tamaño de la serie de numeros a generar
+%n         = el tamaï¿½o de la serie de numeros a generar
 
  * 
  * 
@@ -18,10 +18,10 @@ public class MetodoMultiCongruencia {
 
    //se definene las variables
 
-	int semilla;
-	int a;
-	int modulo;
-	int n;
+	private int semilla;
+	private int a;
+	private int modulo;
+	private int n;
 	
 	public MetodoMultiCongruencia(int v_semilla, int v_t, int v_p, int v_modulo, int v_n) {
 		this.setA(200*v_t + v_p);
@@ -42,25 +42,25 @@ public class MetodoMultiCongruencia {
 	public int getSemilla() {
 		return semilla;
 	}
-	public void setSemilla(int semilla) {
+	private void setSemilla(int semilla) {
 		this.semilla = semilla;
 	}
 	public int getA() {
 		return a;
 	}
-	public void setA(int a) {
+	private void setA(int a) {
 		this.a = a;
 	}
 	public int getModulo() {
 		return modulo;
 	}
-	public void setModulo(int modulo) {
+	private void setModulo(int modulo) {
 		this.modulo = modulo;
 	}
 	public int getN() {
 		return n;
 	}
-	public void setN(int n) {
+	private void setN(int n) {
 		this.n = n;
 	}
 	//se evalua si el valor es primo
@@ -89,7 +89,7 @@ public class MetodoMultiCongruencia {
 			serie.add(aux);
 
 			/**
-			 * aplico la fórmula del método multiplicativo de las congruencias
+			 * aplico la fï¿½rmula del mï¿½todo multiplicativo de las congruencias
 			 */
 			this.setSemilla((this.getA()*this.getSemilla())%this.getModulo());
 		}

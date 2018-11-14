@@ -104,7 +104,7 @@ public class Chi2 {
 
 	/**
 	 * <h1> obtenerFrecuenciaEsperada() </h1>
-	 * <p> permite cargar el vector de frecuencias esperadas que se conforma de la division entre el tamaño de la serie y el numero de subintervalos que se analiza </p>
+	 * <p> permite cargar el vector de frecuencias esperadas que se conforma de la division entre el tamaï¿½o de la serie y el numero de subintervalos que se analiza </p>
 	 * <br>
 	 * <p>Vector de frecuencia esperada</p>
 	 */
