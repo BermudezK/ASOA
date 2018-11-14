@@ -1,7 +1,7 @@
 package modeloHidrologico;
 import java.util.ArrayList;
 
-public class MetodoNumeroIndices {
+class MetodoNumeroIndices {
 	
 	private ArrayList <Integer> x = new ArrayList <Integer>();
 	private ArrayList <Double> fx = new ArrayList <Double>();
@@ -17,7 +17,8 @@ public class MetodoNumeroIndices {
 	 * constructor de la clase MetodoNumeroIndices
 	 * </p>
 	 */
-	public MetodoNumeroIndices(ArrayList<Integer> x, ArrayList<Double> fx, ArrayList<Double> serie) {
+	MetodoNumeroIndices(ArrayList<Integer> x, ArrayList<Double> fx, ArrayList<Double> serie) {
+                
 		this.setFx(fx);
 		this.setX(x);
 		this.setSerie(serie);
@@ -60,11 +61,13 @@ public class MetodoNumeroIndices {
 	 */
 	public ArrayList<Integer> aplicaNumerosIndices() {
 		ArrayList <Integer> muestra = new ArrayList<Integer>();
-		int j;
-		for(int k=0;k < this.getSerie().size(); k++) {
+		int j=0;
+                 // omp parallel for
+		for(int k=0; k < this.getSerie().size(); k++) {
 
 
 			j=0;
+                       
 			while(this.getSerie().get(k) > this.getFx().get(j)) {
 				
 				j++;
