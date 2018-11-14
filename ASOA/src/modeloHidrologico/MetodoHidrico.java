@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Berm�dez Karina S.
  *
  */
-public class MetodoHidrico {
+class MetodoHidrico {
 
 //	MADel,QIN,CIN,CSU
 	private ArrayList<Integer> muestra = new ArrayList<Integer>();
@@ -24,7 +24,7 @@ public class MetodoHidrico {
 	/**
 	 * @param muestra
 	 */
-	public MetodoHidrico(ArrayList<Integer> muestra) {
+	MetodoHidrico(ArrayList<Integer> muestra) {
 		this.setMuestra(muestra);
 	}
 	
@@ -84,6 +84,7 @@ public class MetodoHidrico {
 		
 		this.setMaximo(cin);
 		this.setMinimo(cin);
+		// omp parallel for public (qin, cin, csu)
 		for (int dia=0; dia < this.getMuestra().size(); dia++) {
 			int incremento = qin+this.getMuestra().get(dia);
 			//calculamos el caudal diario
