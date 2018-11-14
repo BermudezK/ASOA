@@ -14,16 +14,16 @@ import java.util.ArrayList;
  * 
  * 
 */
-public class MetodoMultiCongruencia {
+class MetodoMultiCongruencia {
 
    //se definene las variables
 
-	private int semilla;
-	private int a;
-	private int modulo;
-	private int n;
+	protected int semilla;
+	protected int a;
+	protected int modulo;
+	protected int n;
 	
-	public MetodoMultiCongruencia(int v_semilla, int v_t, int v_p, int v_modulo, int v_n) {
+	MetodoMultiCongruencia(int v_semilla, int v_t, int v_p, int v_modulo, int v_n) {
 		this.setA(200*v_t + v_p);
 		this.setModulo(v_modulo);
 		this.setN(v_n);
@@ -83,7 +83,7 @@ public class MetodoMultiCongruencia {
 		ArrayList<Double> serie = new ArrayList<Double>();
 		
 		double aux = 0;
-		
+		// omp parallel
 		for (int i = 0; i < this.getN(); i++) {
 			aux = (double) this.getSemilla()/ (double) (this.getModulo());
 			serie.add(aux);
