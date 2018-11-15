@@ -62,7 +62,10 @@ class MetodoNumeroIndices {
 	public ArrayList<Integer> aplicaNumerosIndices() {
 		ArrayList <Integer> muestra = new ArrayList<Integer>();
 		int j=0;
-        // omp parallel for
+		long startTime = 0;
+		long endTime = 0;
+		// omp parallel for
+		startTime=System.nanoTime();
 		for(int k=0; k < this.getSerie().size(); k++) {
 
 
@@ -74,6 +77,9 @@ class MetodoNumeroIndices {
 			}
 			muestra.add(this.getX().get(j));
 		}
+		endTime = System.nanoTime();
+		System.out.println("~~~ Metodo Hidrico - Duracion " + (endTime - startTime)/1e6 + "ms");
+		
 		
 		return muestra;
 	}

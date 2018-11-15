@@ -7,7 +7,7 @@ public class Main {
 	public static void main (String[]args) {
 		Scanner print = new Scanner (System.in);
 		
-		
+	    
 		System.out.println("'-----------------  INGRESO DE LOS VALORES PARA LLEVAR A CABO LA SIMULACION:-------------'");
 
 		System.out.print(">>Ingrese el numero de iteraciones de la simulacion: ");
@@ -40,7 +40,6 @@ public class Main {
 		MetodoMultiCongruencia mmc = new MetodoMultiCongruencia(semilla, t, p, modulo, EXT*corridas);
 		ArrayList <Double> serie = mmc.ObtenerSerie();
 		
-		serie.forEach((s)->System.out.printf("%.4f - ", (double) s));
 		/* FIN DE LA APLICACION DEL METODO MULTIPLICATIVO DE LAS CONGRUENCIAS**/
 		
 		
