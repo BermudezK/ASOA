@@ -14,7 +14,7 @@ public class Main {
 		System.out.println("-----------------------INGRESO DE LOS VALORES PARA LLEVAR A CABO LA SIMULACION----------------------");
 		System.out.print(">>Ingrese el numero de iteraciones de la simulacion: ");
 		Integer corridas = print.nextInt();
-		System.out.print(">> Cantidad de dias que se simularan (EXT): ");
+		System.out.print(">>Cantidad de dias que se simularan (EXT): ");
 		Integer EXT = print.nextInt();
 		
 		
@@ -24,7 +24,7 @@ public class Main {
 		System.out.println("");
 		System.out.println("INGRESE LOS SIGUIENTES VALORES ENTEROS Y MAYORES A 0 ");
 		
-		System.out.print(">> Semilla: ");
+		System.out.print(">>Semilla: ");
 		Integer semilla = print.nextInt();
 		System.out.print(">>Modulo (debe ser la unidad (1) seguida de ceros(0) y mayor a la semilla): ");
 		Integer modulo = print.nextInt();
@@ -177,7 +177,7 @@ public class Main {
 					System.out.println("");
 					System.out.print("_____________________________________________________________________________________");
 					System.out.println("");
-					System.out.printf("Corrida N� %d", i);
+					System.out.printf("Corrida N° %d", i);
 					System.out.println("");
 					System.out.printf("  >> Caudal Maximo obtenido: %d", metHid.getMaximo());
 					System.out.println("");
@@ -197,14 +197,14 @@ public class Main {
 					TSQ.add(metHid.getTiempoCaudalSuperior());
 					TIQ.add(metHid.getTiempoCaudalInferior());
 					QMS.add(metHid.getCaudalesAcumulados()/EXT);
-					
 									
+					//total_acum.add((metHid.getCaudalesAcumulados()/EXT)/i);	
+					
 					inicio = fin+1;
 					fin = fin + EXT;
 					i++;}			
 				
-				/*tabla de resumen Imprimir(i,QSA,QIA,TSQ,TIQ,QMS)
-				 */
+				/*tabla de resumen Imprimir(i,QSA,QIA,TSQ,TIQ,QMS) */
 				
 				System.out.println("");
 				System.out.println("_______________________________________________________________________________________________");
@@ -213,13 +213,13 @@ public class Main {
 				System.out.printf("%2sNro de Corridas%4sCaudal Maximo%4sCaudal Minimos%2sT.Superior%2sT.Inferior%2sCaudal Medio","","","","","","","");
 				System.out.println("");
 				for (int l=0; l<corridas; l++){
-					System.out.printf("%5s%d %16s %d %16s %d %10s %d %8s%d %10s%d ","",l,"",QIA.get(l),"",QSA.get(l),"",TSQ.get(l),"",TIQ.get(l),"",QMS.get(l));
+					System.out.printf("%5s %d %16s %d %16s %d %10s %d %8s%d %10s%d ","",l,"",QIA.get(l),"",QSA.get(l),"",TSQ.get(l),"",TIQ.get(l),"",QMS.get(l));
 					System.out.println("");
 					}
-				
-				System.out.print("");
-				
-			
+				System.out.println("");	
+				//System.out.printf("Media: %8s%.3f ",(total_acum));
+				System.out.println("");
+				System.out.println("FIN DE LA SIMULACION");
 							
 			}else {
 
