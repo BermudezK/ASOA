@@ -166,7 +166,7 @@ public class Main {
 				int fin = EXT;
 				
 				while ( i < corridas) {
-					//ASIGNAMOS UNA PORCION DE LA MUESTRA POR CADA CORRIDA DEL TAMAñO DE EXT
+					//ASIGNAMOS UNA PORCION DE LA MUESTRA POR CADA CORRIDA DEL TAMAï¿½O DE EXT
 					for (int sub = inicio; sub <= fin; sub++) {
 						subMuestra.add(muestraAleatoria.get(sub));
 					}
@@ -177,7 +177,7 @@ public class Main {
 					System.out.println("");
 					System.out.print("_____________________________________________________________________________________");
 					System.out.println("");
-					System.out.printf("Corrida N° %d", i);
+					System.out.printf("Corrida Nï¿½ %d", i);
 					System.out.println("");
 					System.out.printf("  >> Caudal Maximo obtenido: %d", metHid.getMaximo());
 					System.out.println("");
@@ -191,12 +191,19 @@ public class Main {
 					System.out.println("");
 					System.out.print("-------------------------------------------------------------------------------------");
 					System.out.println("");
+					
+					QSA.add(metHid.getMaximo());
+					QIA.add(metHid.getMinimo());
+					TSQ.add(metHid.getTiempoCaudalSuperior());
+					TIQ.add(metHid.getTiempoCaudalInferior());
+					QMS.add(metHid.getCaudalesAcumulados()/EXT);
+					
+									
 					inicio = fin+1;
 					fin = fin + EXT;
 					i++;}			
 				
-				/*tabla de valores 
-				 * function [] = Imprimir(i,QSA,QIA,TSQ,TIQ,QMS)
+				/*tabla de resumen Imprimir(i,QSA,QIA,TSQ,TIQ,QMS)
 				 */
 				
 				System.out.println("");
@@ -205,10 +212,10 @@ public class Main {
 				System.out.println("_______________________________________________________________________________________________");
 				System.out.printf("%2sNro de Corridas%8sCaudal Maximo%8sCaudal Minimos%2sT.Superior%2sT.Inferior%2sCaudal Medio","","","","","","","");
 				System.out.println("");
-				for (int i1= 0;i1<corridas; i1++) {
-					System.out.printf("%5s%d %8s%.4f% 8s%.4f% 8s%.4f% 8s%.4f%","",i1,"",QSA.get(i1),"",QIA.get(i1),"",TSQ.get(i1),"",TIQ.get(i1),"",QMS.get(i1));
+				for (int l=0; l<corridas; l++){
+					System.out.printf("%5s%d %16s %d %16s %d %10s %d %8s%d %5s%d ","",l,"",QIA.get(l),"",QSA.get(l),"",TSQ.get(l),"",TIQ.get(l),"",QMS.get(l));
+					System.out.println("");
 					}
-				System.out.print("");
 				
 				System.out.print("");
 				
