@@ -210,10 +210,10 @@ public class Main {
 				System.out.println("_______________________________________________________________________________________________");
 				System.out.println("------------ TABLA DE DETALLA UN RESUMEN DE LOS VALORES OBTENIDOS EN CADA CORRIDA -------------");
 				System.out.println("_______________________________________________________________________________________________");
-				System.out.printf("%2sNro de Corridas%8sCaudal Maximo%8sCaudal Minimos%2sT.Superior%2sT.Inferior%2sCaudal Medio","","","","","","","");
+				System.out.printf("%2sNro de Corridas%4sCaudal Maximo%4sCaudal Minimos%2sT.Superior%2sT.Inferior%2sCaudal Medio","","","","","","","");
 				System.out.println("");
 				for (int l=0; l<corridas; l++){
-					System.out.printf("%5s%d %16s %d %16s %d %10s %d %8s%d %5s%d ","",l,"",QIA.get(l),"",QSA.get(l),"",TSQ.get(l),"",TIQ.get(l),"",QMS.get(l));
+					System.out.printf("%5s%d %16s %d %16s %d %10s %d %8s%d %10s%d ","",l,"",QIA.get(l),"",QSA.get(l),"",TSQ.get(l),"",TIQ.get(l),"",QMS.get(l));
 					System.out.println("");
 					}
 				
