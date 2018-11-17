@@ -40,7 +40,6 @@ public class Main {
 		MetodoMultiCongruencia mmc = new MetodoMultiCongruencia(semilla, t, p, modulo, EXT*corridas);
 		ArrayList <Double> serie = mmc.ObtenerSerie();
 		
-		serie.forEach((s)->System.out.printf("%.4f - ", (double) s));
 		/* FIN DE LA APLICACION DEL METODO MULTIPLICATIVO DE LAS CONGRUENCIAS**/
 		
 		
@@ -175,7 +174,7 @@ public class Main {
 					System.out.println("");
 					System.out.print("-------------------------------------------------------------------------------------");
 					System.out.println("");
-					inicio = fin+1;
+					inicio = fin;
 					fin = fin + EXT;
 					i++;
 				}
