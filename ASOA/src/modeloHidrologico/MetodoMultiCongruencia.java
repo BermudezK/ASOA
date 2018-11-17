@@ -101,7 +101,7 @@ class MetodoMultiCongruencia {
 		}
 
 		endTime = System.nanoTime();
-		System.out.println("~~~ Metodo Multiplicativo de las Congruencias - Duracion " + (endTime - startTime) + " ms");
+		System.out.println("~~~ Metodo Multiplicativo de las Congruencias - Duracion " + (endTime - startTime)/1e6 + " ms");
 		
 		return serie;
 	}

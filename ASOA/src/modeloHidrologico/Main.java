@@ -39,7 +39,6 @@ public class Main {
 		//MetodoMultiCongruencia(int v_semilla, int v_t, int v_p, int v_modulo, int v_n) 
 		MetodoMultiCongruencia mmc = new MetodoMultiCongruencia(semilla, t, p, modulo, EXT*corridas);
 		ArrayList <Double> serie = mmc.ObtenerSerie();
-		
 		/* FIN DE LA APLICACION DEL METODO MULTIPLICATIVO DE LAS CONGRUENCIAS**/
 		
 		
@@ -151,11 +150,12 @@ public class Main {
 				int fin = EXT;
 				while ( i <= corridas) {
 					subMuestra.clear();
+
 					//ASIGNAMOS UNA PORCION DE LA MUESTRA POR CADA CORRIDA DEL TAMA�O DE EXT
 					for (int sub = inicio; sub < fin; sub++) {
 						subMuestra.add(muestraAleatoria.get(sub));
 					}
-					
+
 					//[VQIN, QDI, vTOTAL_ACUM, vTSQ, vTIQ] =MetodoHidrico(MADel,QIN,CIN,CSU);
 					MetodoHidrico metHid = new MetodoHidrico(subMuestra);
 					metHid.aplicarMetodo(QIN, CIN, CSU);
@@ -175,7 +175,7 @@ public class Main {
 					System.out.println("");
 					System.out.print("-------------------------------------------------------------------------------------");
 					System.out.println("");
-					inicio = fin+1;
+					inicio = fin;
 					fin = fin + EXT;
 					i++;
 				}
