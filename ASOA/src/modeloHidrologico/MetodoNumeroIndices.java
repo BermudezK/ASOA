@@ -66,7 +66,7 @@ class MetodoNumeroIndices {
 		long endTime = 0;
 
 		startTime=System.nanoTime();
-		// omp parallel for
+		// omp parallel
 		for(int k=0; k < this.getSerie().size(); k++) {
 
 
