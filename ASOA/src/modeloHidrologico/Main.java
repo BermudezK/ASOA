@@ -150,6 +150,7 @@ public class Main {
 				int inicio = 0;
 				int fin = EXT;
 				while ( i <= corridas) {
+					subMuestra.clear();
 					//ASIGNAMOS UNA PORCION DE LA MUESTRA POR CADA CORRIDA DEL TAMA�O DE EXT
 					for (int sub = inicio; sub < fin; sub++) {
 						subMuestra.add(muestraAleatoria.get(sub));
