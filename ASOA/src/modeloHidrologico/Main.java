@@ -5,8 +5,7 @@ import java.util.*;
 public class Main {
 	
 	public static void main (String[]args) {
-		Scanner print = new Scanner (System.in);
-		
+		Scanner print = new Scanner (System.in);		
 		
 		System.out.println("'-----------------  INGRESO DE LOS VALORES PARA LLEVAR A CABO LA SIMULACION:-------------'");
 
