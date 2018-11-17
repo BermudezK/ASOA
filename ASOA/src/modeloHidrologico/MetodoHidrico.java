@@ -116,7 +116,7 @@ public class MetodoHidrico {
 
 		}
 		endTime = System.nanoTime();
-		System.out.println("~~~ Metodo Hidrico - Duracion " + (endTime - startTime)/1e6 + "ms");
+		System.out.println("~~~ Metodo Hidrico - Duracion " + (endTime - startTime)/1e6 + " ms");
 
 
 

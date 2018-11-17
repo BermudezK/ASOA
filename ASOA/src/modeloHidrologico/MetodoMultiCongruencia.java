@@ -98,7 +98,7 @@ public class MetodoMultiCongruencia {
 			this.setSemilla((this.getA()*this.getSemilla())%this.getModulo());
 		}
 		endTime = System.nanoTime();
-		System.out.println("~~~ Metodo Hidrico - Duracion " + (endTime - startTime)/1e6 + "ms");
+		System.out.println("~~~ Metodo Multiplicativo de las Congruencias - Duracion " + (endTime - startTime)/1e6 + " ms");
 
 		return serie;
 	}
