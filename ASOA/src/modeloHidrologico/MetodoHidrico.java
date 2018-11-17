@@ -84,6 +84,11 @@ public class MetodoHidrico {
 		
 		this.setMaximo(cin);
 		this.setMinimo(cin);
+		long startTime = 0;
+		long endTime = 0;
+
+		startTime=System.nanoTime();
+
 		for (int dia=0; dia < this.getMuestra().size(); dia++) {
 			int incremento = qin+this.getMuestra().get(dia);
 			//calculamos el caudal diario
@@ -110,7 +115,9 @@ public class MetodoHidrico {
 			qin = incremento;
 
 		}
-		
+		endTime = System.nanoTime();
+		System.out.println("~~~ Metodo Hidrico - Duracion " + (endTime - startTime)/1e6 + "ms");
+
 
 
 

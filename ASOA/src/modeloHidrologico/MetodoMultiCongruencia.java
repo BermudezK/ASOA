@@ -83,7 +83,11 @@ public class MetodoMultiCongruencia {
 		ArrayList<Double> serie = new ArrayList<Double>();
 		
 		double aux = 0;
-		
+		long startTime = 0;
+		long endTime = 0;
+
+		startTime=System.nanoTime();
+
 		for (int i = 0; i < this.getN(); i++) {
 			aux = (double) this.getSemilla()/ (double) (this.getModulo());
 			serie.add(aux);
@@ -93,6 +97,9 @@ public class MetodoMultiCongruencia {
 			 */
 			this.setSemilla((this.getA()*this.getSemilla())%this.getModulo());
 		}
+		endTime = System.nanoTime();
+		System.out.println("~~~ Metodo Hidrico - Duracion " + (endTime - startTime)/1e6 + "ms");
+
 		return serie;
 	}
 }
