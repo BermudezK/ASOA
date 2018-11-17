@@ -86,8 +86,9 @@ class MetodoMultiCongruencia {
 
 		long startTime = 0;
 		long endTime = 0;
-		// omp parallel for
+
 		startTime=System.nanoTime();
+		// omp parallel for
 		for (int i = 0; i < this.getN(); i++) {
 			aux = (double) this.getSemilla()/ (double) (this.getModulo());
 			serie.add(aux);
