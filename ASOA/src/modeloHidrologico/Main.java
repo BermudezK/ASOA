@@ -158,7 +158,9 @@ public class Main {
 				ArrayList<Integer> TSQ = new ArrayList<Integer>();
 				//vector del tiempo en el que se obtuvo un caudal < a QIA
 				ArrayList<Integer> TIQ = new ArrayList<Integer>();
+				
 				//VECTOR DE LOS CAUDALES ACUMULADOS
+				int Total = 0; 
 				ArrayList<Integer> total_acum= new ArrayList<Integer>();
 				int i=1;
 				ArrayList<Integer> subMuestra = new ArrayList<Integer>();
@@ -166,7 +168,7 @@ public class Main {
 				int fin = EXT;
 				
 				while ( i < corridas) {
-					//ASIGNAMOS UNA PORCION DE LA MUESTRA POR CADA CORRIDA DEL TAMA�O DE EXT
+					//ASIGNAMOS UNA PORCION DE LA MUESTRA POR CADA CORRIDA DEL TAMAñO DE EXT
 					for (int sub = inicio; sub <= fin; sub++) {
 						subMuestra.add(muestraAleatoria.get(sub));
 					}
@@ -197,9 +199,9 @@ public class Main {
 					TSQ.add(metHid.getTiempoCaudalSuperior());
 					TIQ.add(metHid.getTiempoCaudalInferior());
 					QMS.add(metHid.getCaudalesAcumulados()/EXT);
-									
-					//total_acum.add((metHid.getCaudalesAcumulados()/EXT)/i);	
-					
+				
+					total_acum.add(metHid.getCaudalesAcumulados());
+								
 					inicio = fin+1;
 					fin = fin + EXT;
 					i++;}			
@@ -210,15 +212,25 @@ public class Main {
 				System.out.println("_______________________________________________________________________________________________");
 				System.out.println("------------ TABLA DE DETALLA UN RESUMEN DE LOS VALORES OBTENIDOS EN CADA CORRIDA -------------");
 				System.out.println("_______________________________________________________________________________________________");
-				System.out.printf("%2sNro de Corridas%4sCaudal Maximo%4sCaudal Minimos%2sT.Superior%2sT.Inferior%2sCaudal Medio","","","","","","","");
+				System.out.printf("%2sNro de Corridas%4sCaudal Maximo%4sCaudal Minimos%2sT.Superior%2sT.Inferior%2sCaudal Medio","","","","","","","","");
 				System.out.println("");
+
 				for (int l=0; l<corridas; l++){
-					System.out.printf("%5s %d %16s %d %16s %d %10s %d %8s%d %10s%d ","",l,"",QIA.get(l),"",QSA.get(l),"",TSQ.get(l),"",TIQ.get(l),"",QMS.get(l));
+					System.out.printf("");
+					System.out.printf("%5s %d %16s %d %16s %d %10s %d %8s %d %5s %d ","",l,"",QIA.get(l),"",QSA.get(l),"",TSQ.get(l),"",TIQ.get(l),"",QMS.get(l));
 					System.out.println("");
-					}
-				System.out.println("");	
-				//System.out.printf("Media: %8s%.3f ",(total_acum));
+				}
+				
+				//System.out.printf("%5s %d %16s %d %16s %d %10s %d %8s %d %5s %d %d ","",QIA.size(),"",QSA.size(),"",TSQ.size(),"",TIQ.size(),"",QMS.size(),"",total_acum.size());
+				
+				//suma todo el caudal acumulado del vector
+				/*for (int contador=0; contador<corridas.SIZE; contador++) {
+				Total+= total_acum.get(contador);
+									
+					}			
+				System.out.printf("Muestra  %d", ((Total)/i));
 				System.out.println("");
+				 */
 				System.out.println("FIN DE LA SIMULACION");
 							
 			}else {
