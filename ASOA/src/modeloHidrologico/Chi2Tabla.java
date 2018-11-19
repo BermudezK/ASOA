@@ -1,12 +1,11 @@
 package modeloHidrologico;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Chi2Tabla {
-	private List<Double> probabilidad = new ArrayList<Double>(Arrays.asList(0.01, 0.05, 0.10, 0.20, 0.25, 0.30, 0.40, 0.50, 0.60, 0.70, 0.75, 0.80, 0.90, 0.95, 0.99));
+	private ArrayList<Double> probabilidad = new ArrayList<Double>(Arrays.asList(0.01, 0.05, 0.10, 0.20, 0.25, 0.30, 0.40, 0.50, 0.60, 0.70, 0.75, 0.80, 0.90, 0.95, 0.99));
 	
-	private List<Integer> gLibertad   = new ArrayList<Integer> (Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,23,24,25,26,27,28,20,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,2,53,54,55,56,57,58,59,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200));
+	private ArrayList<Integer> gLibertad   = new ArrayList<Integer> (Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,23,24,25,26,27,28,20,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,2,53,54,55,56,57,58,59,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200));
 	
 	private double [] [] chi2InvTabla = {
 		{0.020, 0.103, 0.211, 0.446, 0.575, 0.713, 1.022, 1.386, 1.833, 2.408, 2.773, 3.219, 4.605, 5.991, 9.210},

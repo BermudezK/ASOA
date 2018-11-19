@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * 
  * 
 */
-public class MetodoMultiCongruencia {
+class MetodoMultiCongruencia {
 
    //se definene las variables
 
@@ -23,7 +23,7 @@ public class MetodoMultiCongruencia {
 	private int modulo;
 	private int n;
 	
-	public MetodoMultiCongruencia(int v_semilla, int v_t, int v_p, int v_modulo, int v_n) {
+	MetodoMultiCongruencia(int v_semilla, int v_t, int v_p, int v_modulo, int v_n) {
 		this.setA(200*v_t + v_p);
 		this.setModulo(v_modulo);
 		this.setN(v_n);
@@ -83,23 +83,40 @@ public class MetodoMultiCongruencia {
 		ArrayList<Double> serie = new ArrayList<Double>();
 		
 		double aux = 0;
+<<<<<<< HEAD
 		long startTime = 0;
 		long endTime = 0;
 
 		startTime=System.nanoTime();
 
+=======
+
+		long startTime = 0;
+		long endTime = 0;
+
+		startTime=System.nanoTime();
+		
+		// omp parallel
+>>>>>>> refs/heads/Develop-Paralell
 		for (int i = 0; i < this.getN(); i++) {
 			aux = (double) this.getSemilla()/ (double) (this.getModulo());
 			serie.add(aux);
 
 			/**
-			 * aplico la f�rmula del m�todo multiplicativo de las congruencias
+			 * aplico la formula del  metodo multiplicativo de las congruencias
 			 */
 			this.setSemilla((this.getA()*this.getSemilla())%this.getModulo());
 		}
+<<<<<<< HEAD
 		endTime = System.nanoTime();
 		System.out.println("~~~ Metodo Multiplicativo de las Congruencias - Duracion " + (endTime - startTime)/1e6 + " ms");
 
+=======
+
+		endTime = System.nanoTime();
+		System.out.println("~~~ Metodo Multiplicativo de las Congruencias - Duracion " + (endTime - startTime)/1e6 + " ms");
+		
+>>>>>>> refs/heads/Develop-Paralell
 		return serie;
 	}
 }
