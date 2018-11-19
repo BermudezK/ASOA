@@ -21,10 +21,14 @@ public class MetodoHidrico {
 	private int maximo;
 	private int minimo;
 	
+	
+	/**
+	 * @param muestra
+	 */
 	public MetodoHidrico(ArrayList<Integer> muestra) {
 		this.setMuestra(muestra);
 	}
-
+	
 	public ArrayList<Integer> getMuestra() {
 		return muestra;
 	}
@@ -72,6 +76,13 @@ public class MetodoHidrico {
 		int qin = v_qin;
 		int cin = v_qin;
 		int csu = v_qin;
+		//INICIALIZAMOS LOS VALORES PARA CADA UNA DE LAS CORRIDAS
+		this.getCaudalesIniciales().clear();
+		this.getCaudalesDiarios().clear();
+		this.setCaudalesAcumulados(0);
+		this.setTiempoCaudalInferior(0);	
+		this.setTiempoCaudalInferior(0);
+		
 		this.setMaximo(cin);
 		this.setMinimo(cin);
 		for (int dia=0; dia < this.getMuestra().size(); dia++) {
@@ -89,22 +100,20 @@ public class MetodoHidrico {
 			if (incremento<cin) {
 				this.setTiempoCaudalInferior(this.getTiempoCaudalInferior()+1);
 			}
-			
+
 			if (this.getMaximo() < incremento) {
 				this.setMaximo(incremento);
 			}
-			
+
 			if (this.getMinimo() > incremento) {
 				this.setMinimo(incremento);
 			}
-			
-			
 			qin = incremento;
-			
+
 		}
-				 
-			
-			
-			
+		
+
+
+
 	}
 }
