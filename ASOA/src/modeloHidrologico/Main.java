@@ -1,3 +1,4 @@
+
 package modeloHidrologico;
 import java.util.*;
 import java.util.ArrayList;
@@ -150,7 +151,7 @@ public class Main {
 				while ( i <= corridas) {
 					subMuestra.clear();
 
-					//ASIGNAMOS UNA PORCION DE LA MUESTRA POR CADA CORRIDA DEL TAMA�O DE EXT
+					//ASIGNAMOS UNA PORCION DE LA MUESTRA POR CADA CORRIDA DEL TAMANO DE EXT
 					for (int sub = inicio; sub < fin; sub++) {
 						subMuestra.add(muestraAleatoria.get(sub));
 					}

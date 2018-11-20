@@ -1,3 +1,4 @@
+
 package modeloHidrologico;
 import java.util.ArrayList;
 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 %p         = Uno de los siguientes valores:  3, 11, 13, 19, 21, 27, 29, 37, 53, 59, 61, 67, 69, 77, 83, 91;
 %   t y p son usados para calcular el valor del parametro a)
 %modulo    = es el valor representado po la unidad seguida de ceros 
-%n         = el tama�o de la serie de numeros a generar
+%n         = el tamano de la serie de numeros a generar
 
  * 
  * 
