@@ -1,3 +1,4 @@
+
 package modeloHidrologico;
 import java.util.*;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class Main {
 		System.out.println("");
 		System.out.println("");
 		System.out.println("Para calcular el parametro a necesitaremmos los siguientes valores :       \n");
-		System.out.print("  >>Par�metro t (un valor entero cualquiera):  ");
+		System.out.print("  >>Parametro t (un valor entero cualquiera):  ");
 		Integer t = print.nextInt();
 		System.out.println("Para el parametro p elija uno de los siguientes numeros ");
 		System.out.println("3, 11, 13, 19, 21, 27, 29, 37, 53, 59, 61, 67, 69, 77, 83, 91");
@@ -150,7 +151,7 @@ public class Main {
 				int fin = EXT;
 				while ( i <= corridas) {
 					subMuestra.clear();
-					//ASIGNAMOS UNA PORCION DE LA MUESTRA POR CADA CORRIDA DEL TAMA�O DE EXT
+					//ASIGNAMOS UNA PORCION DE LA MUESTRA POR CADA CORRIDA DEL TAMANO DE EXT
 					for (int sub = inicio; sub < fin; sub++) {
 						subMuestra.add(muestraAleatoria.get(sub));
 					}
@@ -188,9 +189,6 @@ public class Main {
 					fin = fin + EXT;
 					i++;
 				}			
-
-				/*tabla de resumen Imprimir(i,QSA,QIA,TSQ,TIQ,QMS) */
-
 				System.out.println("");
 				System.out.println("_______________________________________________________________________________________________");
 				System.out.println("------------ TABLA DE DETALLA UN RESUMEN DE LOS VALORES OBTENIDOS EN CADA CORRIDA -------------");
@@ -203,35 +201,11 @@ public class Main {
 					System.out.printf("%5s %d %16s %d %16s %d %10s %d %8s %d %5s %d ","",(l+1),"",QSA.get(l),"",QIA.get(l),"",TSQ.get(l),"",TIQ.get(l),"",QMS.get(l));
 					System.out.println("");
 				}
-
-				//System.out.printf("%5s %d %16s %d %16s %d %10s %d %8s %d %5s %d %d ","",QIA.size(),"",QSA.size(),"",TSQ.size(),"",TIQ.size(),"",QMS.size(),"",total_acum.size());
-
-				//suma todo el caudal acumulado del vector
-				/*for (int contador=0; contador<corridas.SIZE; contador++) {
-				Total+= total_acum.get(contador);
-
-					}			
-				System.out.printf("Muestra  %d", ((Total)/i));
-				System.out.println("");
-				 */
-
 			}else {
 
 				System.out.printf("%2s** Chi2 Observado = %.3f > Chi2 Tabla = %.3f", "", chi2o,chi2t);
 				System.out.println("  *** No Se acepta la hipotesis de que la serie tenga de una Distribucion Uniforme ");
 
-				/**
-				 * TRABAJAMOS CON LA TABLA DE DISTRIBUCION EMPIRICA
-				 * 
-				 */
-
-				/**generamos la tabla de distribucion de Empirica
-				 * */
-
-				/**
-				 * % generamos la Muestra Artificial del Incremento diario que se ajusta a la distribucion
-         		   % Empirica
-				 * */
 			}
 		}
 

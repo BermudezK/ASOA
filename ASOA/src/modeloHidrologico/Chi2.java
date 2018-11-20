@@ -67,6 +67,7 @@ public class Chi2 {
 	private void setNi(int ni) {
 		this.ni = ni;
 	}
+	
 	private double getAlpha() {
 		return alpha;
 	}
@@ -104,7 +105,7 @@ public class Chi2 {
 
 	/**
 	 * <h1> obtenerFrecuenciaEsperada() </h1>
-	 * <p> permite cargar el vector de frecuencias esperadas que se conforma de la division entre el tama�o de la serie y el numero de subintervalos que se analiza </p>
+	 * <p> permite cargar el vector de frecuencias esperadas que se conforma de la division entre el tamano de la serie y el numero de subintervalos que se analiza </p>
 	 * <br>
 	 * <p>Vector de frecuencia esperada</p>
 	 */
