@@ -73,8 +73,8 @@ public class MetodoHidrico {
 
 	public void aplicarMetodo(int v_qin, int v_cin, int v_csu) {
 		int qin = v_qin;
-		int cin = v_qin;
-		int csu = v_qin;
+		int cin = v_cin;
+		int csu = v_csu;
 		//INICIALIZAMOS LOS VALORES PARA CADA UNA DE LAS CORRIDAS
 		this.getCaudalesIniciales().clear();
 		this.getCaudalesDiarios().clear();
