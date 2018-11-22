@@ -1,5 +1,4 @@
 package modeloHidrologico;
-
 import java.util.ArrayList;
 /*
  * %el metodo calcula si una cierta serie sigue una distribucion uniforme 

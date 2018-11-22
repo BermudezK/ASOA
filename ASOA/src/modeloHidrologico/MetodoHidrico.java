@@ -1,6 +1,3 @@
-/**
- * 
- */
 package modeloHidrologico;
 
 import java.util.ArrayList;

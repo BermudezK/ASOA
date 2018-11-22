@@ -1,6 +1,5 @@
 package modeloHidrologico;
 import java.util.ArrayList;
-
 public class MetodoNumeroIndices {
 	
 	private ArrayList <Integer> x = new ArrayList <Integer>();
