@@ -77,7 +77,7 @@ class MetodoHidrico {
 		this.getCaudalesDiarios().clear();
 		this.setCaudalesAcumulados(0);
 		this.setTiempoCaudalInferior(0);	
-		this.setTiempoCaudalInferior(0);
+		this.setTiempoCaudalSuperior(0);
 		
 		this.setMaximo(cin);
 		this.setMinimo(cin);

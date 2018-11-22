@@ -189,8 +189,6 @@ public class Main {
 					i++;
 				}			
 				
-				/*tabla de resumen Imprimir(i,QSA,QIA,TSQ,TIQ,QMS) */
-				
 				System.out.println("");
 				System.out.println("_______________________________________________________________________________________________");
 				System.out.println("------------ TABLA DE DETALLA UN RESUMEN DE LOS VALORES OBTENIDOS EN CADA CORRIDA -------------");
@@ -204,16 +202,7 @@ public class Main {
 					System.out.println("");
 				}
 				
-				//System.out.printf("%5s %d %16s %d %16s %d %10s %d %8s %d %5s %d %d ","",QIA.size(),"",QSA.size(),"",TSQ.size(),"",TIQ.size(),"",QMS.size(),"",total_acum.size());
 				
-				//suma todo el caudal acumulado del vector
-				/*for (int contador=0; contador<corridas.SIZE; contador++) {
-				Total+= total_acum.get(contador);
-									
-					}			
-				System.out.printf("Muestra  %d", ((Total)/i));
-				System.out.println("");
-				 */
 				System.out.println("");
 				System.out.println("FIN DE LA SIMULACION");
 							
@@ -222,18 +211,7 @@ public class Main {
 				System.out.printf("%2s** Chi2 Observado = %.3f > Chi2 Tabla = %.3f", "", chi2o,chi2t);
 				System.out.println("  *** No Se acepta la hipotesis de que la serie tenga de una Distribucion Uniforme ");
 				
-				/**
-				 * TRABAJAMOS CON LA TABLA DE DISTRIBUCION EMPIRICA
-				 * 
-				*/
 				
-				/**generamos la tabla de distribucion de Empirica
-				 * */
-				
-				/**
-				 * % generamos la Muestra Artificial del Incremento diario que se ajusta a la distribucion
-         		   % Empirica
-				 * */
 			}
 		}
 	
