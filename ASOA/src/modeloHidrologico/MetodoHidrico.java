@@ -79,8 +79,8 @@ public class MetodoHidrico {
 		this.setTiempoCaudalInferior(0);	
 		this.setTiempoCaudalSuperior(0);
 		
-		this.setMaximo(cin);
-		this.setMinimo(cin);
+		this.setMaximo(qin);
+		this.setMinimo(qin);
 		long startTime = 0;
 		long endTime = 0;
 
