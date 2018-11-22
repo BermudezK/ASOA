@@ -158,7 +158,7 @@ public class Main {
 					//[VQIN, QDI, vTOTAL_ACUM, vTSQ, vTIQ] =MetodoHidrico(MADel,QIN,CIN,CSU);
 					MetodoHidrico metHid = new MetodoHidrico(subMuestra);
 					metHid.aplicarMetodo(QIN, CIN, CSU);
-					
+					subMuestra.forEach((s)->System.out.printf("%d |", s));
 					System.out.print("_____________________________________________________________________________________");
 					System.out.println("");
 					System.out.printf("Corrida N %d", i);
