@@ -154,7 +154,7 @@ public class Main {
 					for (int sub = inicio; sub < fin; sub++) {
 						subMuestra.add(muestraAleatoria.get(sub));
 					}
-					
+					//subMuestra.forEach((s)-> System.out.printf("%d |", s));
 					//[VQIN, QDI, vTOTAL_ACUM, vTSQ, vTIQ] =MetodoHidrico(MADel,QIN,CIN,CSU);
 					MetodoHidrico metHid = new MetodoHidrico(subMuestra);
 					metHid.aplicarMetodo(QIN, CIN, CSU);
