@@ -84,14 +84,9 @@ class MetodoMultiCongruencia {
 		
 		double aux = 0;
 
-		long startTime = 0;
-		long endTime = 0;
-		long time =0;
-		
 		
 		// omp parallel
 		for (int i = 0; i < this.getN(); i++) {
-			startTime=System.nanoTime();
 			aux = (double) this.getSemilla()/ (double) (this.getModulo());
 			serie.add(aux);
 
@@ -99,12 +94,7 @@ class MetodoMultiCongruencia {
 			 * aplico la formula del  metodo multiplicativo de las congruencias
 			 */
 			this.setSemilla((this.getA()*this.getSemilla())%this.getModulo());
-			endTime = System.nanoTime();
-			time = time + (endTime - startTime);
 		}
-
-		System.out.println("~~~ Metodo Multiplicativo de las Congruencias - Duracion " + time/1e6 + " ms");
-		
 		return serie;
 	}
 }

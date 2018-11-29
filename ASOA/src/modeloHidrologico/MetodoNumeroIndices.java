@@ -61,13 +61,9 @@ class MetodoNumeroIndices {
 	public ArrayList<Integer> aplicaNumerosIndices() {
 		ArrayList <Integer> muestra = new ArrayList<Integer>();
 		int j=0;
-		long startTime = 0;
-		long endTime = 0;
-		long time = 0;
 		
 		// omp parallel for
 		for(int k=0; k < this.getSerie().size(); k++) {
-			startTime=System.nanoTime();
 			j=0;
                        
 			while(this.getSerie().get(k) > this.getFx().get(j)) {
@@ -75,11 +71,7 @@ class MetodoNumeroIndices {
 				j++;
 			}
 			muestra.add(this.getX().get(j));
-			endTime = System.nanoTime();
-			time = time + (endTime - startTime);
 		}
-		System.out.println("~~~ Metodo Numeros Indices - Duracion " + time/1e6 + "ms");
-		
 		
 		return muestra;
 	}
