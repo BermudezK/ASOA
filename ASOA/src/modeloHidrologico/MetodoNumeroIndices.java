@@ -60,10 +60,6 @@ public class MetodoNumeroIndices {
 	public ArrayList<Integer> aplicaNumerosIndices() {
 		ArrayList <Integer> muestra = new ArrayList<Integer>();
 		int j;
-		long startTime = 0;
-		long endTime = 0;
-
-		startTime=System.nanoTime();
 
 		for(int k=0;k < this.getSerie().size(); k++) {
 
@@ -75,8 +71,6 @@ public class MetodoNumeroIndices {
 			}
 			muestra.add(this.getX().get(j));
 		}
-		endTime = System.nanoTime();
-		System.out.println("~~~ Metodo Numeros Indices - Duracion " + (endTime - startTime)/1e6 + " ms");
 
 		
 		return muestra;
