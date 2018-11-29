@@ -84,10 +84,12 @@ class MetodoHidrico {
 		
 		long startTime = 0;
 		long endTime = 0;
+		long time =0;
 
-		startTime=System.nanoTime();
+		
 		// omp parallel public (qin, cin, csu)
 		for (int dia=0; dia < this.getMuestra().size(); dia++) {
+			startTime=System.nanoTime();
 			int incremento = qin+this.getMuestra().get(dia);
 			//calculamos el caudal diario
 			this.getCaudalesDiarios().add(incremento);
@@ -111,10 +113,11 @@ class MetodoHidrico {
 				this.setMinimo(incremento);
 			}
 			qin = incremento;
-
+			endTime = System.nanoTime();
+			time=time+(endTime - startTime);
 		}
-		endTime = System.nanoTime();
-		System.out.println("~~~ Metodo Hidrico - Duracion " + (endTime - startTime)/1e6 + "ms");
+		
+		System.out.println("~~~ Metodo Hidrico - Duracion " + time/1e6 + "ms");
 		
 		
 
