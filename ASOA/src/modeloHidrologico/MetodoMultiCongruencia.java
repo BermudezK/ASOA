@@ -1,5 +1,6 @@
 package modeloHidrologico;
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 /*
  * %METODO MULTIPLICATIVO DE LAS CONGRUENCIAS
@@ -79,22 +80,28 @@ class MetodoMultiCongruencia {
 	 * @ArrayList 
 	 * permitira obtener un array list con aquellos valores de la serie obtenida por el metodo
 	 */
+	private double MetMultiCong(){
+    	double aux = (double) semilla/ (double) (modulo);
+		semilla = (a* semilla)% modulo;
+		return aux;
+    }
+	
 	public ArrayList <Double> ObtenerSerie() {
 		ArrayList<Double> serie = new ArrayList<Double>();
+		long init = 0;
+		long finish = 0;
 		
-		double aux = 0;
-
-		
-		// omp parallel
-		for (int i = 0; i < this.getN(); i++) {
-			aux = (double) this.getSemilla()/ (double) (this.getModulo());
-			serie.add(aux);
-
-			/**
-			 * aplico la formula del  metodo multiplicativo de las congruencias
-			 */
-			this.setSemilla((this.getA()*this.getSemilla())%this.getModulo());
+		init = System.nanoTime();
+		//omp parallel
+		{
+			
+			Stream.iterate(1, x -> x + 1).limit(n).forEach(item -> serie.add(MetMultiCong()));
+			
 		}
+		finish = System.nanoTime();
+		
+		System.out.println("Duración: " + ( finish - init)/1e6 + " ms");
 		return serie;
+		
 	}
 }
