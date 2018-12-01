@@ -68,7 +68,7 @@ public class Main {
 		while (actual < corridas) {
 			//MetodoMultiCongruencia(int v_semilla, int v_t, int v_p, int v_modulo, int v_n) 
 			MetodoMultiCongruencia mmc = new MetodoMultiCongruencia(semilla, t, p, modulo, EXT*simulacion);
-			ArrayList <Double> serie = mmc.ObtenerSerie();
+			ArrayList <Double> serie = mmc.obtenerSerie();
 			/* FIN DE LA APLICACION DEL METODO MULTIPLICATIVO DE LAS CONGRUENCIAS**/
 
 

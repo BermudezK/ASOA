@@ -1,6 +1,5 @@
 package modeloHidrologico;
 import java.util.ArrayList;
-import java.util.stream.Stream;
 class MetodoNumeroIndices {
 	
 	private ArrayList <Integer> x = new ArrayList <Integer>();
@@ -53,7 +52,7 @@ class MetodoNumeroIndices {
 	 * 
 	 */
 
-	private int MetNumerosIndices(int indice) {
+	private int metNumerosIndices(int indice) {
 		int j=0;	
 		while(this.getSerie().get(indice) > this.getFx().get(j)) {	
 			j++;
@@ -67,10 +66,10 @@ class MetodoNumeroIndices {
 		long init = 0;
 		long finish = 0;
 		init = System.nanoTime();
-		//omp parallel
-		{		
-			Stream.iterate(1, i -> i + 1).limit(this.getSerie().size()).forEach(item -> muestra.add(MetNumerosIndices(item-1)));
-		}
+		//omp parallel for	
+		for (int i = 0; i< this.getSerie().size(); i++) {
+			muestra.add(metNumerosIndices(i));
+		}	
 		finish = System.nanoTime();
 		
 		System.out.println("Duracion Metodo Numero Indices: " + (finish - init)/1e6 + " ms");
