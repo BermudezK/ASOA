@@ -1,6 +1,7 @@
 package modeloHidrologico;
 import java.util.ArrayList;
-public class MetodoNumeroIndices {
+import java.util.stream.Stream;
+class MetodoNumeroIndices {
 	
 	private ArrayList <Integer> x = new ArrayList <Integer>();
 	private ArrayList <Double> fx = new ArrayList <Double>();
@@ -16,7 +17,8 @@ public class MetodoNumeroIndices {
 	 * constructor de la clase MetodoNumeroIndices
 	 * </p>
 	 */
-	public MetodoNumeroIndices(ArrayList<Integer> x, ArrayList<Double> fx, ArrayList<Double> serie) {
+	MetodoNumeroIndices(ArrayList<Integer> x, ArrayList<Double> fx, ArrayList<Double> serie) {
+                
 		this.setFx(fx);
 		this.setX(x);
 		this.setSerie(serie);
@@ -57,22 +59,31 @@ public class MetodoNumeroIndices {
 	 * </p>
 	 * 
 	 */
-	public ArrayList<Integer> aplicaNumerosIndices() {
-		ArrayList <Integer> muestra = new ArrayList<Integer>();
-		int j;
 
-		for(int k=0;k < this.getSerie().size(); k++) {
-
-
-			j=0;
-			while(this.getSerie().get(k) > this.getFx().get(j)) {
-				
+	private int MetNumerosIndices(int indice) {
+		int j=0;	
+		// omp parallel
+		{
+			while(this.getSerie().get(indice) > this.getFx().get(j)) {	
 				j++;
 			}
-			muestra.add(this.getX().get(j));
 		}
-
+		return (this.getX().get(j));
+	}
+	
+	public ArrayList<Integer> obtenerMuestra (){
+		ArrayList <Integer> muestra = new ArrayList<Integer>();
+		long init = 0;
+		long finish = 0;
+		init = System.nanoTime();
+		//omp parallel
+		{		
+			Stream.iterate(1, x -> x + 1).limit(this.getSerie().size()).forEach(item -> muestra.add(MetNumerosIndices(item-1)));
+			
+		}
+		finish = System.nanoTime();
 		
+		System.out.println("Duracion Metodo Numero Indices: " + (finish - init)/1e6 + " ms");
 		return muestra;
 	}
 }

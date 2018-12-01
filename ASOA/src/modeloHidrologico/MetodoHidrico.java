@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * @author Bermudez Karina S.
  *
  */
-public class MetodoHidrico {
+class MetodoHidrico {
 
 //	MADel,QIN,CIN,CSU
 	private ArrayList<Integer> muestra = new ArrayList<Integer>();
@@ -21,7 +21,7 @@ public class MetodoHidrico {
 	/**
 	 * @param muestra
 	 */
-	public MetodoHidrico(ArrayList<Integer> muestra) {
+	MetodoHidrico(ArrayList<Integer> muestra) {
 		this.setMuestra(muestra);
 	}
 	
@@ -80,8 +80,13 @@ public class MetodoHidrico {
 		this.setTiempoCaudalSuperior(0);
 		
 		this.setMaximo(qin);
-		this.setMinimo(qin);	
-
+		this.setMinimo(qin);
+		
+		long init = 0;
+		long finish = 0;
+		
+		init = System.nanoTime();
+		// omp parallel for public (qin, cin, csu)
 		for (int dia=0; dia < this.getMuestra().size(); dia++) {
 			int incremento = qin+this.getMuestra().get(dia);
 			//calculamos el caudal diario
@@ -106,7 +111,9 @@ public class MetodoHidrico {
 				this.setMinimo(incremento);
 			}
 			qin = incremento;
-
 		}
+		finish = System.nanoTime();
+		
+		System.out.println("Duracion Hidrico: " + (finish - init)/1e6 + " ms");
 	}
 }

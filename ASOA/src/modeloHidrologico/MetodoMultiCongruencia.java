@@ -14,7 +14,7 @@ import java.util.stream.Stream;
  * 
  * 
 */
-public class MetodoMultiCongruencia {
+class MetodoMultiCongruencia {
 
    //se definene las variables
 
@@ -23,7 +23,7 @@ public class MetodoMultiCongruencia {
 	private int modulo;
 	private int n;
 	
-	public MetodoMultiCongruencia(int v_semilla, int v_t, int v_p, int v_modulo, int v_n) {
+	MetodoMultiCongruencia(int v_semilla, int v_t, int v_p, int v_modulo, int v_n) {
 		this.setA(200*v_t + v_p);
 		this.setModulo(v_modulo);
 		this.setN(v_n);
@@ -80,8 +80,8 @@ public class MetodoMultiCongruencia {
 	 * permitira obtener un array list con aquellos valores de la serie obtenida por el metodo
 	 */
 	private double MetMultiCong(){
-    	double aux = (double) semilla/ (double) (modulo);
-		semilla = (a* semilla)% modulo;
+    	double aux = (double) this.getSemilla()/ (double) (this.getModulo());
+		this.setSemilla((this.getA() * this.getSemilla()) % this.getModulo());
 		return aux;
     }
 	
@@ -98,8 +98,7 @@ public class MetodoMultiCongruencia {
 			
 		}
 		finish = System.nanoTime();
-		
-		System.out.println("Duración: " + ( finish - init)/1e6 + " ms");
+		System.out.println("Duracion Metodo Multiplicativo de las congruencias: " + ( finish - init)/1e6 + " ms");
 		return serie;
 		
 	}
