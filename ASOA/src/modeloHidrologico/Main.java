@@ -1,6 +1,7 @@
 package modeloHidrologico;
 import java.util.*;
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 public class Main {
 
 	public static void main (String[]args) {
@@ -37,8 +38,34 @@ public class Main {
 		System.out.print("  >>Parametro \"p\": ");
 		Integer p = print.nextInt();
 
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("-------------------------------------------------------------------------------------");
+		System.out.println("             PRUEBA CHI CUADRADO PARA VERIFICAR QUE UNA SERIE DE NUMEROS             ");
+		System.out.println("                    PSEUDOALEATORIOS SIGA UNA DISTRIBUCION UNIFORME                  ");
+		System.out.println("-------------------------------------------------------------------------------------");
+
+		System.out.print(">>Ingrese el numero de subintervalos considerados: ");
+		Integer ni = print.nextInt();
+		System.out.print(">>Ingrese nivel de significacion considerado entre [0,1]: (sugerido 0,05)");
+		Double alpha = print.nextDouble();
+		
+
+		System.out.println("");
+		System.out.println("_____________________________________________________________________________________");
+		System.out.println("------------------------- INICIAREMOS EL MODELO HIDROLOGICO:-------------------------");
+		System.out.println("_____________________________________________________________________________________");
+
+		System.out.println("");
+		System.out.print(" >>Ingrese el valor del caudal inicial (QIN):");
+		int QIN = print.nextInt();
+		System.out.print(" >>Ingrese el valor del caudal minimo alcanzado (CIN):");
+		int CIN = print.nextInt();
+		System.out.print(" >>Ingrese el valor del caudal maximo alcanzado (CSU)):");
+		int CSU = print.nextInt();
+
 		while (actual < corridas) {
-			semilla = semilla + actual; // lo unico que cambiamos de una corrida a la otra es el valor de la semilla
 			//MetodoMultiCongruencia(int v_semilla, int v_t, int v_p, int v_modulo, int v_n) 
 			MetodoMultiCongruencia mmc = new MetodoMultiCongruencia(semilla, t, p, modulo, EXT*simulacion);
 			ArrayList <Double> serie = mmc.ObtenerSerie();
@@ -51,20 +78,9 @@ public class Main {
 				 * %DIRECTAMENTE LLAMAREMOS A LA FUNCION Y NO IMPRIMIREMOS NINGUN VALOR
 				 * */
 				/* INICIO BLOQUE DE CODIGO EjecucionChi()*/
-				System.out.println("");
-				System.out.println("");
-				System.out.println("");
-				System.out.println("-------------------------------------------------------------------------------------");
-				System.out.println("             PRUEBA CHI CUADRADO PARA VERIFICAR QUE UNA SERIE DE NUMEROS             ");
-				System.out.println("                    PSEUDOALEATORIOS SIGA UNA DISTRIBUCION UNIFORME                  ");
-				System.out.println("-------------------------------------------------------------------------------------");
 
-				System.out.print(">>Ingrese el numero de subintervalos considerados: ");
-				Integer ni = print.nextInt();
-				System.out.print(">>Ingrese nivel de significacion considerado entre [0,1]: (sugerido 0,05)");
-				Double alpha = print.nextDouble();
 				//Chi2(ArrayList<Double> serie, int ni, double alpha )
-				Chi2 mch2 = new Chi2(serie, ni, alpha);
+				Chi2 mch2 = new Chi2(serie, ni, (double) alpha);
 
 				//CHI2VALORES
 				ArrayList <Double> fe = mch2.getFe();
@@ -91,14 +107,19 @@ public class Main {
 					System.out.println("");
 				}
 				System.out.print("");
-				//System.out.println("-------------------------------------------------------------------------------------");
 				System.out.println("");
 				System.out.println("______________________________________________________________________________________");
 				System.out.println("----------------------------------- RESULTADOS --------------------------------------");
 				System.out.println("______________________________________________________________________________________");
 				System.out.printf("%2s* Grados de libertad = %d", "", ni-1);
 				System.out.println("");
+				
+				
+				
+				
 				if(resultado) {
+					
+					
 					System.out.printf("%2s** Chi2 Observado = %.3f < Chi2 Tabla = %.3f", "", chi2o,chi2t);
 					System.out.println("");
 					System.out.println("  *** Se acepta la hipotesis de que la serie tenga de una Distribucion Uniforme ");
@@ -119,24 +140,8 @@ public class Main {
 					 * 	 de contenido que maneje la muestra
 					 * */
 					MetodoNumeroIndices metNumInd = new MetodoNumeroIndices(x,fx,serie);
-					ArrayList <Integer>  muestraAleatoria = metNumInd.aplicaNumerosIndices();
-
-					/**
-					 * inicio de las corridas
-					 * */
-					System.out.println("");
-					System.out.println("_____________________________________________________________________________________");
-					System.out.println("------------------------- INICIAREMOS EL MODELO HIDROLOGICO: CORRIDA "+ corridas +"----------------");
-					System.out.println("_____________________________________________________________________________________");
-
-					System.out.println("");
-					System.out.print(" >>Ingrese el valor del caudal inicial (QIN):");
-					int QIN = print.nextInt();
-					System.out.print(" >>Ingrese el valor del caudal minimo alcanzado (CIN):");
-					int CIN = print.nextInt();
-					System.out.print(" >>Ingrese el valor del caudal maximo alcanzado (CSU)):");
-					int CSU = print.nextInt();
-
+					ArrayList <Integer>  muestraAleatoria = metNumInd.obtenerMuestra();
+					
 					//vector de los caudales medios obtenidos en cada una de las corridas
 					ArrayList<Integer> QMS = new ArrayList<Integer>();
 					//vector de los caudales maximos alcanzados
@@ -153,9 +158,9 @@ public class Main {
 					ArrayList<Integer> subMuestra = new ArrayList<Integer>();
 					int inicio = 0;
 					int fin = EXT;
+					
 					while ( i <= simulacion) {
 						subMuestra.clear();
-
 						//ASIGNAMOS UNA PORCION DE LA MUESTRA POR CADA CORRIDA DEL TAMANO DE EXT
 						for (int sub = inicio; sub < fin; sub++) {
 							subMuestra.add(muestraAleatoria.get(sub));
@@ -164,10 +169,9 @@ public class Main {
 						//[VQIN, QDI, vTOTAL_ACUM, vTSQ, vTIQ] =MetodoHidrico(MADel,QIN,CIN,CSU);
 						MetodoHidrico metHid = new MetodoHidrico(subMuestra);
 						metHid.aplicarMetodo(QIN, CIN, CSU);
-						subMuestra.forEach((s)->System.out.printf("%d |", s));
 						System.out.print("_____________________________________________________________________________________");
 						System.out.println("");
-						System.out.printf("Corrida N %d", i);
+						System.out.printf("Simulacion N %d", i);
 						System.out.println("");
 						System.out.printf("  >> Caudal Maximo obtenido: %d", metHid.getMaximo());
 						System.out.println("");
@@ -197,7 +201,7 @@ public class Main {
 
 					System.out.println("");
 					System.out.println("_______________________________________________________________________________________________");
-					System.out.println("------------ TABLA DE DETALLA UN RESUMEN DE LOS VALORES OBTENIDOS EN CADA CORRIDA -------------");
+					System.out.println("------------ TABLA DE DETALLA UN RESUMEN DE LOS VALORES OBTENIDOS EN CADA Iteracion -------------");
 					System.out.println("_______________________________________________________________________________________________");
 					System.out.printf("%2sNro de Simulcion%4sCaudal Maximo%4sCaudal Minimos%2sT.Superior%2sT.Inferior%2sCaudal Medio","","","","","","","","");
 					System.out.println("");
@@ -207,6 +211,20 @@ public class Main {
 						System.out.printf("%5s %d %16s %d %16s %d %10s %d %8s %d %5s %d ","",(l+1),"",QSA.get(l),"",QIA.get(l),"",TSQ.get(l),"",TIQ.get(l),"",QMS.get(l));
 						System.out.println("");
 					}
+					
+					fo=null;
+					fe=null;
+					cocientes=null;
+					fx=null;
+					x=null;
+					muestraAleatoria=null;
+					subMuestra=null;
+					QMS=null;
+					QSA=null;
+					QIA=null;
+					TSQ=null;
+					TIQ=null;
+					total_acum=null;
 
 				}else {
 
@@ -216,13 +234,16 @@ public class Main {
 
 				}
 			}
-
-
+			semilla = ThreadLocalRandom.current().nextInt(1000, 9999); // lo unico que cambiamos de una corrida a la otra es el valor de la semilla
+			serie=null;
+			actual++;
 			System.out.println("");
 			System.out.println("FIN DE LA SIMULACION");
 		}
 		print.close();
+		
 
 	}
+	
 
 }
