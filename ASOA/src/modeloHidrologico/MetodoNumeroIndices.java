@@ -69,7 +69,7 @@ class MetodoNumeroIndices {
 		init = System.nanoTime();
 		//omp parallel
 		{		
-			Stream.iterate(1, x -> x + 1).limit(this.getSerie().size()).forEach(item -> muestra.add(MetNumerosIndices(item-1)));
+			Stream.iterate(1, i -> i + 1).limit(this.getSerie().size()).forEach(item -> muestra.add(MetNumerosIndices(item-1)));
 		}
 		finish = System.nanoTime();
 		
