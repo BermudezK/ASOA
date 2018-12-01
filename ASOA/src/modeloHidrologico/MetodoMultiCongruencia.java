@@ -81,8 +81,8 @@ class MetodoMultiCongruencia {
 	 * permitira obtener un array list con aquellos valores de la serie obtenida por el metodo
 	 */
 	private double MetMultiCong(){
-    	double aux = (double) semilla/ (double) (modulo);
-		semilla = (a* semilla)% modulo;
+    	double aux = (double) this.getSemilla()/ (double) (this.getModulo());
+		this.setSemilla((this.getA() * this.getSemilla()) % this.getModulo());
 		return aux;
     }
 	
@@ -100,7 +100,7 @@ class MetodoMultiCongruencia {
 		}
 		finish = System.nanoTime();
 		
-		System.out.println("Duración: " + ( finish - init)/1e6 + " ms");
+		System.out.println("Duracion Metodo Multiplicativo de las congruencias: " + ( finish - init)/1e6 + " ms");
 		return serie;
 		
 	}
