@@ -88,13 +88,12 @@ class MetodoMultiCongruencia {
 	public ArrayList <Double> ObtenerSerie() {
 		ArrayList<Double> serie = new ArrayList<Double>();
 		long init = 0;
-		long finish = 0;
-		
+		long finish = 0;		
 		init = System.nanoTime();
 		//omp parallel
 		{
 			
-			Stream.iterate(1, x -> x + 1).limit(n).forEach(item -> serie.add(MetMultiCong()));
+			Stream.iterate(1, x -> x + 1).limit(this.getN()).forEach(item -> serie.add(MetMultiCong()));
 			
 		}
 		finish = System.nanoTime();

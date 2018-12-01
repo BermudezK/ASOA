@@ -23,13 +23,6 @@ class MetodoNumeroIndices {
 		this.setX(x);
 		this.setSerie(serie);
 	}
-
-	
-	//x distribucion
-	//FX distribucion
-	//n longuitud de la serie
-	
-	//ver de donde toma la muestra y a serie
 	
 	public ArrayList<Integer> getX() {
 		return x;
@@ -62,12 +55,10 @@ class MetodoNumeroIndices {
 
 	private int MetNumerosIndices(int indice) {
 		int j=0;	
-		// omp parallel
-		{
-			while(this.getSerie().get(indice) > this.getFx().get(j)) {	
-				j++;
-			}
+		while(this.getSerie().get(indice) > this.getFx().get(j)) {	
+			j++;
 		}
+		
 		return (this.getX().get(j));
 	}
 	
@@ -79,11 +70,13 @@ class MetodoNumeroIndices {
 		//omp parallel
 		{		
 			Stream.iterate(1, x -> x + 1).limit(this.getSerie().size()).forEach(item -> muestra.add(MetNumerosIndices(item-1)));
-			
 		}
 		finish = System.nanoTime();
 		
 		System.out.println("Duracion Metodo Numero Indices: " + (finish - init)/1e6 + " ms");
 		return muestra;
 	}
+	
+	
+	
 }
