@@ -49,7 +49,8 @@ public class Main {
 		System.out.print(">>Ingrese el numero de subintervalos considerados: ");
 		Integer ni = print.nextInt();
 		System.out.print(">>Ingrese nivel de significacion considerado entre [0,1]");
-		System.out.println("Sugeridos [0.01, 0.05, 0.10, 0.20, 0.25, 0.30, 0.40, 0.50, 0.60, 0.70, 0.75, 0.80, 0.90, 0.95, 0.99] :");
+		System.out.println("");
+		System.out.println("Sugeridos [0.01, 0.05, 0.10, 0.20, 0.25, 0.30, 0.40, 0.50, 0.60, 0.70, 0.75, 0.80, 0.90, 0.95, 0.99]: ");
 		Double alpha = print.nextDouble();
 		
 
@@ -160,6 +161,7 @@ public class Main {
 					while ( i <= simulacion) {
 						subMuestra.clear();
 						//ASIGNAMOS UNA PORCION DE LA MUESTRA POR CADA CORRIDA DEL TAMANO DE EXT
+						
 						for (int sub = inicio; sub < fin; sub++) {
 							subMuestra.add(muestraAleatoria.get(sub));
 						}
