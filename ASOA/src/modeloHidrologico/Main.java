@@ -141,7 +141,6 @@ public class Main {
 					 * */
 					MetodoNumeroIndices metNumInd = new MetodoNumeroIndices(x,fx,serie);
 					ArrayList <Integer>  muestraAleatoria = metNumInd.obtenerMuestra();
-					
 					//vector de los caudales medios obtenidos en cada una de las corridas
 					ArrayList<Integer> QMS = new ArrayList<Integer>();
 					//vector de los caudales maximos alcanzados
@@ -157,15 +156,13 @@ public class Main {
 					int i=1;
 					ArrayList<Integer> subMuestra = new ArrayList<Integer>();
 					int inicio = 0;
-					int fin = EXT;
-					
+					int fin = EXT;					
 					while ( i <= simulacion) {
 						subMuestra.clear();
 						//ASIGNAMOS UNA PORCION DE LA MUESTRA POR CADA CORRIDA DEL TAMANO DE EXT
 						for (int sub = inicio; sub < fin; sub++) {
 							subMuestra.add(muestraAleatoria.get(sub));
 						}
-
 						//[VQIN, QDI, vTOTAL_ACUM, vTSQ, vTIQ] =MetodoHidrico(MADel,QIN,CIN,CSU);
 						MetodoHidrico metHid = new MetodoHidrico(subMuestra);
 						metHid.aplicarMetodo(QIN, CIN, CSU);

@@ -54,20 +54,22 @@ class MetodoNumeroIndices {
 
 	private int metNumerosIndices(int indice) {
 		int j=0;	
+				
 		while(this.getSerie().get(indice) > this.getFx().get(j)) {	
 			j++;
 		}
 		
 		return (this.getX().get(j));
 	}
+
 	
 	public ArrayList<Integer> obtenerMuestra (){
 		ArrayList <Integer> muestra = new ArrayList<Integer>();
 		long init = 0;
 		long finish = 0;
 		init = System.nanoTime();
-		//omp parallel for	
-		for (int i = 0; i< this.getSerie().size(); i++) {
+		//omp parallel for	public (i)
+		for (int i = 0; i < this.getSerie().size(); i++) {
 			muestra.add(metNumerosIndices(i));
 		}	
 		finish = System.nanoTime();
