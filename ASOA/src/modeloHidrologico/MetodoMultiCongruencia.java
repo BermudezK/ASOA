@@ -91,7 +91,9 @@ class MetodoMultiCongruencia {
 		long finish = 0;		
 		init = System.nanoTime();
 		// omp parallel threadNum(1)
-		Stream.iterate(1, x -> x + 1).limit(this.getN()).forEach(item -> serie.add(metMultiCong()));
+		{
+			Stream.iterate(1, x -> x + 1).limit(this.getN()).forEach(item -> serie.add(metMultiCong()));
+		}
 		finish = System.nanoTime();
 		System.out.println("Duracion Metodo Multiplicativo de las congruencias: " + ( finish - init)/1e6 + " ms");
 		return serie;

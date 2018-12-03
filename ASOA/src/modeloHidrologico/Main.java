@@ -209,28 +209,14 @@ public class Main {
 						System.out.printf("");
 						System.out.printf("%5s %d %16s %d %16s %d %10s %d %8s %d %5s %d ","",(l+1),"",QSA.get(l),"",QIA.get(l),"",TSQ.get(l),"",TIQ.get(l),"",QMS.get(l));
 						System.out.println("");
-					}					
-					fo=null;
-					fe=null;
-					cocientes=null;
-					fx=null;
-					x=null;
-					muestraAleatoria=null;
-					subMuestra=null;
-					QMS=null;
-					QSA=null;
-					QIA=null;
-					TSQ=null;
-					TIQ=null;
-					total_acum=null;
-
+					}			
 				}else {
 					System.out.printf("%2s** Chi2 Observado = %.3f > Chi2 Tabla = %.3f", "", chi2o,chi2t);
 					System.out.println("  *** No Se acepta la hipotesis de que la serie tenga de una Distribucion Uniforme ");
 				}
 			}
 			semilla = ThreadLocalRandom.current().nextInt(1000, 9999); // lo unico que cambiamos de una corrida a la otra es el valor de la semilla
-			serie=null;
+			
 			actual++;
 			System.out.println("");
 			System.out.println("FIN DE LA SIMULACION");
