@@ -1,6 +1,6 @@
 package modeloHidrologico;
 import java.util.ArrayList;
-
+import java.util.stream.Stream;
 /*
  * %METODO MULTIPLICATIVO DE LAS CONGRUENCIAS
 %  PARAMETROS
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 %p         = Uno de los siguientes valores:  3, 11, 13, 19, 21, 27, 29, 37, 53, 59, 61, 67, 69, 77, 83, 91;
 %   t y p son usados para calcular el valor del parametro a)
 %modulo    = es el valor representado po la unidad seguida de ceros 
-%n         = el tama�o de la serie de numeros a generar
+%n         = el tamano de la serie de numeros a generar
 
  * 
  * 
@@ -79,44 +79,24 @@ class MetodoMultiCongruencia {
 	 * @ArrayList 
 	 * permitira obtener un array list con aquellos valores de la serie obtenida por el metodo
 	 */
-	public ArrayList <Double> ObtenerSerie() {
+	
+	private double metMultiCong(){
+		double aux = (double) this.getSemilla()/ (double) (this.getModulo());
+		this.setSemilla((this.getA()*this.getSemilla())%this.getModulo());
+		return aux;
+    }
+	public ArrayList <Double> obtenerSerie() {
 		ArrayList<Double> serie = new ArrayList<Double>();
-		
-		double aux = 0;
-<<<<<<< HEAD
-		long startTime = 0;
-		long endTime = 0;
-
-		startTime=System.nanoTime();
-
-=======
-
-		long startTime = 0;
-		long endTime = 0;
-
-		startTime=System.nanoTime();
-		
-		// omp parallel
->>>>>>> refs/heads/Develop-Paralell
-		for (int i = 0; i < this.getN(); i++) {
-			aux = (double) this.getSemilla()/ (double) (this.getModulo());
-			serie.add(aux);
-
-			/**
-			 * aplico la formula del  metodo multiplicativo de las congruencias
-			 */
-			this.setSemilla((this.getA()*this.getSemilla())%this.getModulo());
+		long init = 0;
+		long finish = 0;		
+		init = System.nanoTime();
+		// omp parallel threadNum(1)
+		{
+			Stream.iterate(1, x -> x + 1).limit(this.getN()).forEach(item -> serie.add(metMultiCong()));
 		}
-<<<<<<< HEAD
-		endTime = System.nanoTime();
-		System.out.println("~~~ Metodo Multiplicativo de las Congruencias - Duracion " + (endTime - startTime)/1e6 + " ms");
-
-=======
-
-		endTime = System.nanoTime();
-		System.out.println("~~~ Metodo Multiplicativo de las Congruencias - Duracion " + (endTime - startTime)/1e6 + " ms");
-		
->>>>>>> refs/heads/Develop-Paralell
+		finish = System.nanoTime();
+		System.out.println("Duracion Metodo Multiplicativo de las congruencias: " + ( finish - init)/1e6 + " ms");
 		return serie;
+		
 	}
 }

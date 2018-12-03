@@ -1,11 +1,8 @@
-/**
- * 
- */
 package modeloHidrologico;
 
 import java.util.ArrayList;
 /**
- * @author Berm�dez Karina S.
+ * @author Bermudez Karina S.
  *
  */
 class MetodoHidrico {
@@ -73,26 +70,23 @@ class MetodoHidrico {
 
 	public void aplicarMetodo(int v_qin, int v_cin, int v_csu) {
 		int qin = v_qin;
-		int cin = v_qin;
-		int csu = v_qin;
+		int cin = v_cin;
+		int csu = v_csu;
 		//INICIALIZAMOS LOS VALORES PARA CADA UNA DE LAS CORRIDAS
 		this.getCaudalesIniciales().clear();
 		this.getCaudalesDiarios().clear();
 		this.setCaudalesAcumulados(0);
 		this.setTiempoCaudalInferior(0);	
-		this.setTiempoCaudalInferior(0);
+		this.setTiempoCaudalSuperior(0);
 		
-		this.setMaximo(cin);
-		this.setMinimo(cin);
-		long startTime = 0;
-		long endTime = 0;
-
-		startTime=System.nanoTime();
-<<<<<<< HEAD
-
-=======
-		// omp parallel public (qin, cin, csu)
->>>>>>> refs/heads/Develop-Paralell
+		this.setMaximo(qin);
+		this.setMinimo(qin);
+		
+		long init = 0;
+		long finish = 0;
+		
+		init = System.nanoTime();
+		// omp parallel for public (qin, cin, csu)
 		for (int dia=0; dia < this.getMuestra().size(); dia++) {
 			int incremento = qin+this.getMuestra().get(dia);
 			//calculamos el caudal diario
@@ -117,19 +111,9 @@ class MetodoHidrico {
 				this.setMinimo(incremento);
 			}
 			qin = incremento;
-
 		}
-		endTime = System.nanoTime();
-<<<<<<< HEAD
-		System.out.println("~~~ Metodo Hidrico - Duracion " + (endTime - startTime)/1e6 + " ms");
-
-=======
-		System.out.println("~~~ Metodo Hidrico - Duracion " + (endTime - startTime)/1e6 + "ms");
+		finish = System.nanoTime();
 		
-		
->>>>>>> refs/heads/Develop-Paralell
-
-
-
+		System.out.println("Duracion Hidrico: " + (finish - init)/1e6 + " ms");
 	}
 }
